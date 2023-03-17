@@ -1,4 +1,4 @@
-import React, { MouseEvent, ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import { Input, Button } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,6 @@ export type TaskType = {
 type FilterValueType = "All" | "Active" | "Done";
 
 
-
 const App: React.FC = () => {
     const dispatch = useDispatch();
     const [inputValue, setInputValue] = useState("");
@@ -38,9 +37,7 @@ const App: React.FC = () => {
     const [bgColor, setBgColor] = useState(backgroundUrl[0])
     useEffect(() => {
         const intervalId = setInterval(() => {
-            const randomIndex = Math.floor(Math.random() * backgroundUrl.length); 
-            console.log(randomIndex);
-            
+            const randomIndex = Math.floor(Math.random() * backgroundUrl.length);
             setBgColor(backgroundUrl[randomIndex]);
         }, 10000)
         return () => {
